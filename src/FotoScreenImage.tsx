@@ -1,16 +1,18 @@
 import React from 'react';
-import { View, Text, Image, StyleSheet } from 'react-native';
+import { View, Text, Image, StyleSheet, Dimensions } from 'react-native';
 import { connect, useSelector } from 'react-redux';
 import { RootState } from '../store';
+import { colors, fontWeight } from './constants';
 
 const FotoScreenImage = () => {
-  const photo = useSelector<RootState>(state => state.photo);
+  const photo:any = useSelector<RootState>(state => state.photo);
 
   return (
     <View style={styles.container}>
-      <Text>FotoScreenImage</Text>
-
       <Image source={{ uri: photo.urls.regular }} style={styles.image} />
+
+      <Text style={styles.author}>{photo.user.name}</Text>
+      <Text style={styles.description}>{photo.alt_description}</Text>
     </View>
   );
 };
@@ -18,13 +20,26 @@ const FotoScreenImage = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: 'flex-start',
+    backgroundColor: colors.white
   },
   image: {
-    width: 200,
-    height: 200,
+    width: Dimensions.get('window').width,
+    height: Dimensions.get('window').height * .5,
     marginTop: 10,
+  },
+  author: {
+    marginTop: 5,
+    fontSize: 40,
+    color: colors.niceGray,
+    fontWeight: fontWeight.bolt,
+    paddingLeft: 20
+  },
+  description: {
+    fontSize: 20,
+    marginTop: 3,
+    color: colors.grey,
+    paddingLeft: 20
   },
 });
 
