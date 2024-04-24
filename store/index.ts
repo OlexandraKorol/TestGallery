@@ -1,8 +1,14 @@
-import { galleryReducer } from '../src/redusers/photos';
-import { combineReducers, configureStore } from "@reduxjs/toolkit"
+import { combineReducers, configureStore } from '@reduxjs/toolkit';
+import photoItemReducer from './photo';
 
-const rootReduser = combineReducers({
-  photos: galleryReducer
+const rootReducer = combineReducers({
+  photo: photoItemReducer,
 })
 
-export const store = configureStore({ reducer: rootReduser })
+const store = configureStore({
+  reducer: rootReducer,
+});
+
+export type RootState = ReturnType<typeof store.getState>;
+
+export default store;

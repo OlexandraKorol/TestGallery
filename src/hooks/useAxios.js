@@ -10,8 +10,6 @@ export const useAxios = (param) => {
   const fetchData = async () => {
     const clientID = Config.VITE_ACCESS_KEY;
 
-    console.log(clientID);
-
     setIsLoading(true);
     try {
       setIsLoading(false);
