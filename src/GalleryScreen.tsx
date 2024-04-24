@@ -5,15 +5,6 @@ import {useAxios} from './hooks/useAxios';
 import {ErrorMessage, Loading} from './TextMessages';
 import {colors} from './constants';
 
-export const GalleryScreenOption = {
-  headerShown: true,
-  headerTitle: 'Gallery',
-  headerStyle: {
-    backgroundColor: 'red',
-    shadowColor: 'red',
-  },
-};
-
 export const GalleryScreen = () => {
   const {error, fetchData, response, isLoading} = useAxios('/photos');
 

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import axios from "react-native-axios";
-import Config from 'react-native-config'
+import Config from 'react-native-config';
 
 export const useAxios = (param) => {
   const [response, setResponse] = useState([]);
